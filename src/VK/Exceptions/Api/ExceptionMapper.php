@@ -78,6 +78,8 @@ class ExceptionMapper {
 		        return new VKApiAccessAudioException($error);
 		    case 203:
 		        return new VKApiAccessGroupException($error);
+		    case 260:
+		        return new VKApiAccessGroupsException($error);
 		    case 300:
 		        return new VKApiAlbumFullException($error);
 		    case 500:

@@ -126,17 +126,13 @@ class VKApiRequest {
         $body = $response->getBody();
         $decode_body = $this->decodeBody($body);
 
-        if (isset($decode_body[static::KEY_ERROR])) {
-            $error = $decode_body[static::KEY_ERROR];
+        if (isset($decode_body->{static::KEY_ERROR})) {
+            $error = $decode_body->{static::KEY_ERROR};
             $api_error = new VKApiError($error);
             throw ExceptionMapper::parse($api_error);
         }
 
-        if (isset($decode_body[static::KEY_RESPONSE])) {
-            return $decode_body[static::KEY_RESPONSE];
-        } else {
-            return $decode_body;
-        }
+        return $decode_body->{static::KEY_RESPONSE} ?? $decode_body;
     }
 
     /**
@@ -165,10 +161,10 @@ class VKApiRequest {
      * @return mixed
      */
     protected function decodeBody(string $body) {
-        $decoded_body = json_decode($body, true);
+        $decoded_body = json_decode($body);
 
-        if ($decoded_body === null || !is_array($decoded_body)) {
-            $decoded_body = [];
+        if ($decoded_body === null || !is_object($decoded_body)) {
+            $decoded_body = (object) [];
         }
 
         return $decoded_body;

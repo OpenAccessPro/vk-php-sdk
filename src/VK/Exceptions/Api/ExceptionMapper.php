@@ -66,6 +66,8 @@ class ExceptionMapper {
 		        return new VKApiRateLimitException($error);
 		    case 30:
 		        return new VKApiPrivateProfileException($error);
+		    case 39:
+		        return new VKApiUnknownUserException($error);
 		    case 100:
 		        return new VKApiParamException($error);
 		    case 101:

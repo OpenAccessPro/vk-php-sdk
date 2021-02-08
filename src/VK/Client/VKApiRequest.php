@@ -15,6 +15,7 @@ class VKApiRequest {
     private const PARAM_LANG = 'lang';
 
     private const KEY_ERROR = 'error';
+    private const KEY_EXECUTE_ERRORS = 'execute_errors';
     private const KEY_RESPONSE = 'response';
 
     protected const CONNECTION_TIMEOUT = 10;

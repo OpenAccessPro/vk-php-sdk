@@ -92,6 +92,8 @@ class ExceptionMapper {
 		        return new VKApiAdsPermissionException($error);
 		    case 603:
 		        return new VKApiAdsSpecificException($error);
+		    case 3610:
+		        return new VKApiUserIsDeactivatedException($error);
 		    default:
 		        return new VKApiException($error->getErrorCode(), $error->getErrorMsg(), $error);}
 	}

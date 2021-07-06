@@ -133,7 +133,7 @@ class VKApiRequest {
             throw ExceptionMapper::parse($api_error);
         }
 
-        return $decode_body->{static::KEY_RESPONSE} ?? $decode_body;
+        return $decode_body;
     }
 
     /**

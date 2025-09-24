@@ -40,8 +40,8 @@ use VK\Actions\Wall;
 use VK\Actions\Widgets;
 
 class VKApiClient {
-    protected const API_VERSION = '5.101';
-    protected const API_HOST = 'https://api.vk.com/method';
+    protected const API_VERSION = '5.199';
+    protected const API_HOST = 'https://api.vk.ru/method';
 
     /**
      * @var VKApiRequest
